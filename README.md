@@ -2,8 +2,7 @@
 
 
 
-Description here
-
+USE npm start TO RUN BOTH SERVER AND CLIENT SIDE
 
 ### Wireframes
 
