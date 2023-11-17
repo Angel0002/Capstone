@@ -4,25 +4,20 @@ body {
     padding: 0;
     margin: 0;  
     background: rgb(157, 222, 248);
+    width: 100%;
   }
-
 
   .topbar {
     overflow: hidden;
     background-color:  #41d159;
     padding: 10px;
-    height: 110px; /* Set the page height to the viewport height */
-    width: 100%;
+    height: 110px; 
+    width: 100vw;
     top: 0;
   }
-  @media screen and (max-width: 99vw) {
-    .topbar {
-      width: 100%; /* Adjust this value as your minimum font size */
-    }
-  }
+
 
    .profile button {
-
     float: right;
     margin-right: 15px;
     background-color: #4CAF50;
@@ -42,28 +37,29 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-}
-
+  overflow: hidden;
+  }
 .content img{
-    width: auto; /* Set the image width to 100% of its container */
-    height: 100px; /* Maintain the aspect ratio */
+    width: auto; 
+    height: 100px; 
     min-height: 80px;
-    display: block; /* Remove any inline spacing */
-    border: 2px solid #000; /* Add a border */
+    display: block; 
+    border: 2px solid #000; 
   }
 
   .content .name {
     padding-left: 30px;
     font-size: 50px;
     white-space: nowrap;
-    overflow: auto;
+    overflow: hidden;;
   }
  
- .lower-content{
+  .lower-content{
   display: flex;
   flex-direction: row;
   margin: 10px;
   top: 10px;
+  width: 100%;
 }
 
 
@@ -71,9 +67,9 @@ body {
     max-width: 30vw;
     min-width: 300px;
     height: 100vh;
-    background-color: #f2f2f2; /* Sidebar background color */
+    background-color: #f2f2f2; 
     display: block;
-    border: 2px solid #000; /* Add a border */
+    border: 2px solid #000; 
     border-radius: 1%;
     flex: 1;
   }
@@ -81,9 +77,9 @@ body {
     max-width: 30vw;
     min-width: 300px;
     height: 100vh;
-    background-color: #f2f2f2; /* Sidebar background color */
+    background-color: #f2f2f2; 
     display: block;
-    border: 2px solid #000; /* Add a border */
+    border: 2px solid #000; 
     border-radius: 1%;
     flex: 1;
   }
@@ -106,7 +102,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  flex: 1;
+  flex-grow: 1;
 }
 .search-map .input-container{
   padding-left: 20px;
@@ -118,15 +114,15 @@ body {
   min-height: 10px;
   
 }
-.search-map .map{
-  margin-top: 16px;
-  margin-right: 20px;
-  margin-left: 20px;
-  height: 400px;
-  flex: 1;
-  background: orange;
-  
+
+
+.lower-content .search-map .map{
+  width:100%;
+  height: 80vh;
+  padding-top: 5px;
+  flex-grow: 1;
 }
+
 .input-container input{
   font-size: 20px;
   padding-left: 10px;
@@ -154,6 +150,16 @@ body {
 button:hover{
   background-color:  rgb(157, 222, 248);
 }
+
+
+  
+  
+  
+
+
+
+
+
 
 
   
