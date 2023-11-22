@@ -7,12 +7,18 @@ body {
     width: 100%;
   }
 
-  .topbar {
+  .page{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .page .topbar {
     overflow: hidden;
     background-color:  #41d159;
     padding: 10px;
     height: 110px; 
-    width: 100vw;
+    width: 100%;
     top: 0;
   }
 
@@ -54,7 +60,7 @@ body {
     overflow: hidden;;
   }
  
-  .lower-content{
+  .page .lower-content{
   display: flex;
   flex-direction: row;
   margin: 10px;
@@ -63,6 +69,7 @@ body {
 }
 
 
+  /* before */
   .lower-content .saved .sidebar {
     max-width: 30vw;
     min-width: 300px;
@@ -83,6 +90,18 @@ body {
     border-radius: 1%;
     flex: 1;
   }
+
+  /* after */
+  /* .lower-content .result .sidebar {
+    max-width: 30vw;
+    min-width: 500px;
+    height: 100vh;
+    background-color: #f2f2f2; 
+    display: block;
+    border: 2px solid #000; 
+    border-radius: 1%;
+    flex: 1;
+  }  */
 
 .sidebar .name{
   font-size: 30px;
@@ -147,21 +166,10 @@ body {
   border-radius: 4%;
 }
 
-button:hover{
-  background-color:  rgb(157, 222, 248);
+.lower-content button:hover{
+  background-color:  #309c42;
 }
 
-
-  
-  
-  
-
-
-
-
-
-
-
-  
-  
-  
+.topbar button:hover{
+  background-color:  rgb(157, 222, 248);
+}
