@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
-// import currentLocationButton from '../../assets/current_location_button.PNG';
+import { Link } from 'react-router-dom';
 import "./dashboard.css"; 
 
 function SearchLocation() {
-  // const onLoad = (marker) => {
-  //       console.log("marker: ", marker);
-  //     };
   const mapStyles = [
     {
       featureType: 'poi',
@@ -54,6 +51,31 @@ function SearchLocation() {
       }
     };
 
+    const handleCurrentLocation = async () => {
+      try {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            (position) => {
+              setUserPosition({
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+              });
+              setAddressValidity(true);
+            },
+            (error) => {
+              console.error('Error getting user location:', error);
+              setAddressValidity(false);
+            }
+          );
+        }  else {
+          console.error('Geolocation is not supported by this browser.');
+        }
+      } catch (error) {
+        console.error('Error getting user location:', error);
+        setAddressValidity(false);
+      }
+    };
+
     useEffect(() => {
 
       if (userPosition && userPosition.lat && userPosition.lng && validAddress) {
@@ -75,12 +97,11 @@ function SearchLocation() {
           <button type="button" className="searchButton" onClick={handleSearch}>
             Search
           </button>
-          {/* <button type="button" className="currentLocationButton" onClick={handleSearch}>
-            <img
-                src={currentLocationButton}
+          <img className="currentLocationButton" 
+                onClick={handleCurrentLocation}
+                src="/assets/currentLocationButton.png"
                 alt="current_location"
               />
-          </button> */}
 
         </div>
         <div className="map">
@@ -162,7 +183,7 @@ function UserProfile(){
           <div className={`dropdown-content ${dropdownOpen ? 'show' : ''}`}>
             <a href="https://www.google.com/">Profile</a>
             <a href="https://www.google.com/">Settings</a>
-            <a href="https://www.google.com/">Sign Out</a>
+            <Link to="/">Sign Out</Link>
           </div>
           <div>
 
@@ -172,14 +193,16 @@ function UserProfile(){
 }
 
 function Dashboard(){
+  
     return(
-    <div className="page">
+    <div className="dashboard">
       <div className="topbar">
           {UserProfile()}
           <div className="content">
             <div className="image-container">
               <img
                 src="https://media.istockphoto.com/id/482430364/photo/blue-wooden-wall-with-the-inscription-garage-sale.jpg?s=1024x1024&w=is&k=20&c=59RBAF6v6sbtJDIWLRWRbTIMlDoCUv3sCJNSIWAQbv8="
+                //src="/assets/button.png"
                 className="logo"
                 alt="logo"
               />
@@ -196,8 +219,8 @@ function Dashboard(){
           googleMapsApiKey="AIzaSyBqSTtw4vop05TMAcAXcdClNgIKApvgYVU"
         >
           <SearchLocation />
-          {ResultSales()}
         </LoadScript>
+        {ResultSales()}
       </div>
 
       {/* after */}

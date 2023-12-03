@@ -1,32 +1,58 @@
-import React from "react";
+// import { useNavigate } from "react-router-dom";
+// const navigate = useNavigate();
+//   const navigateToLogin = () =>{
+//       navigate("/login");
+//   };<button className="Login-button" onClick={navigateToLogin}>Login</button>
+import React, { useState } from "react";
 import "./Homepage.css"; // Import your CSS file here
+import SignUp from "../SignUp/SignUp.tsx"; // Importing SignUp.js
+import Login from "../Login/Login.tsx"; //Importing Login.js
 
 function Homepage() {
+  const [showSignUp, setShowSignUp] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
+
+  const toggleSignUp = () => {
+    setShowSignUp(!showSignUp);
+    if (showLogin) setShowLogin(false); //Hide the login if not being used
+  };
+
+  const toggleLogin = () => {
+    setShowLogin(!showLogin);
+    if (showSignUp) setShowSignUp(false); //hide sign up if not being used
+  };
+
   return (
     <div className="page">
-      <header className="header">
-        <div className="content">
-          <div className="image-container">
-            <img
-              src="https://media.istockphoto.com/id/482430364/photo/blue-wooden-wall-with-the-inscription-garage-sale.jpg?s=1024x1024&w=is&k=20&c=59RBAF6v6sbtJDIWLRWRbTIMlDoCUv3sCJNSIWAQbv8="
-              className="image"
-            />
-            <div className="name">Garage Sale Finder</div>
-          </div>
-        </div>
-      </header>
-      <div className="button-Login-container">
-        <button className="Login-button">Login</button>
-        <button className="SignUp-button">SignUp</button>
+      <div className="topnav">
+        <a className="active" href="#home">
+          Home
+        </a>
+        <a href="#Login" onClick={toggleLogin}>
+          Log In
+        </a>
+        <a href="#SignUp" onClick={toggleSignUp}>
+          Sign Up
+        </a>
+        <div className="homepage-name">Garage Sale Finder</div>
       </div>
 
-      <footer className="footer">
-        Made with
-        <span role="img" aria-label="Heart Emoji">
-          ❤️
-        </span>
-        from Team Hex: <a href="https://github.com/Angel0002">Melis</a>
-      </footer>
+      {showSignUp ? (
+        <SignUp onNavigateBack={() => setShowSignUp(false)} />
+      ) : showLogin ? (
+        <Login onNavigateBack={() => setShowLogin(false)} />
+      ) : (
+        <>
+          {/* Need homepage content here */}
+          <footer className="footer">
+            Made with
+            <span role="img" aria-label="Heart Emoji">
+              ❤️
+            </span>
+            from Team Hex: <a href="https://github.com/Angel0002">Melis</a>
+          </footer>
+        </>
+      )}
     </div>
   );
 }

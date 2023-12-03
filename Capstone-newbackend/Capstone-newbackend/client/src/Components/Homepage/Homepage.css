@@ -12,32 +12,12 @@ body {
   height: 100vh; /* Set the page height to the viewport height */
 }
 
-/* Style the header section with a light green background */
-.header {
-  padding: 20px;
-  display: flex;
-  flex-direction: column; /* Stack the image and name vertically */
-  align-items: center;
-  justify-content: center; /* Center horizontally and vertically */
-}
-.image-container {
-  display: flex;
-  align-items: center;
-}
-
-.image {
-  max-width: 20%; /* Set the image width to 100% of its container */
-  height: auto; /* Maintain the aspect ratio */
-  display: block; /* Remove any inline spacing */
-  margin: 0px; /* Center the image horizontally */
-  border: 2px solid #000; /* Add a border */
-}
-
 /* Style the title name */
-.name {
+.homepage-name {
   text-align: center;
   width: 90%;
   font-size: 60px;
+  color: white;
 }
 
 /* Style the footer with a blue background */
@@ -61,40 +41,30 @@ body {
   margin: 0px 0px;
   cursor: pointer;
 }
-/*.button-SignUp-container {
-
-  padding-top: 150px;
-  padding-left: 50%;
-  margin: 0;
-  padding-bottom: -20px;
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: rgb(108, 175, 108);
+  overflow: hidden;
 }
 
-.SignUp-button {
-  margin: 0;
-  background-color: #b0c988;
-  height: 100px;
-  width: 200px;
-} 
-*/
-
-.button-Login-container {
-  /* other styles */
-  padding-top: 150px;
-  padding-left: 20%;
-  margin: 0;
-  padding-bottom: -10px;
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 25px;
 }
 
-.SignUp-button {
-  margin: 0 200px 0 0; /* Add more margin on the right side to increase space between buttons */
-  background-color: #b0c988;
-  height: 100px;
-  width: 200px;
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
 }
 
-.Login-button {
-  margin: 0 300px 0 0; /* Add more margin on the right side to increase space between buttons */
-  background-color: #b0c988;
-  height: 100px;
-  width: 200px;
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #04aa6d;
+  color: white;
 }
